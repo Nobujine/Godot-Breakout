@@ -20,6 +20,6 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 
-func _on_body_entered(body):
-	print('Paddle Hit')
-	hit.emit()
+func _on_area_2d_body_entered(body):
+	print('hit')
+	

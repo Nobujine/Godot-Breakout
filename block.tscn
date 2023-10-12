@@ -17,7 +17,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print('hello2')
 	var tween = get_tree().create_tween()
 	tween.parallel().tween_property($ColorRect, 'position', Vector2($ColorRect.position.x,-30) ,.3)
 	tween.parallel().tween_property($ColorRect,'color', Color.TRANSPARENT, .3)
