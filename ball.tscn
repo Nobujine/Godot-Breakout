@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs2oaaom44cyb"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_s2bn4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2blik"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f16lj"]
+radius = 20.0
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_2blik")
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_s2bn4")
+ball_speed = 400
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f16lj")
+
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Start_Timer" to="." method="_on_timer_timeout"]

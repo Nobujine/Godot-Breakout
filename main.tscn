@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://bb3k2m0tt0y3h"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ujpv4"]
+[ext_resource type="PackedScene" uid="uid://t5wmd7p1gutk" path="res://ui.tscn" id="1_wswyi"]
+[ext_resource type="PackedScene" uid="uid://3bibeqqgh0td" path="res://Player.tscn" id="2_n2vfp"]
+[ext_resource type="Script" path="res://Bottom.gd" id="4_8h7gv"]
+[ext_resource type="PackedScene" uid="uid://bs2oaaom44cyb" path="res://ball.tscn" id="5_bk4t1"]
+[ext_resource type="PackedScene" uid="uid://dp1dwkk4w1mj8" path="res://block.tscn" id="6_1k360"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_prdft"]
+a = Vector2(480, 0)
+b = Vector2(480, 720)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_07m2h"]
+b = Vector2(0, 720)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ydy68"]
+b = Vector2(480, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r0rxg"]
+a = Vector2(8, 720)
+b = Vector2(472, 720)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ujpv4")
+ball_scene = ExtResource("5_bk4t1")
+
+[node name="UI" parent="." instance=ExtResource("1_wswyi")]
+
+[node name="Player" parent="." instance=ExtResource("2_n2vfp")]
+position = Vector2(226, 649)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_prdft")
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_07m2h")
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+shape = SubResource("SegmentShape2D_ydy68")
+
+[node name="Bottom_Wall" type="Area2D" parent="."]
+light_mask = 3
+script = ExtResource("4_8h7gv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Wall"]
+shape = SubResource("SegmentShape2D_r0rxg")
+
+[node name="Ball_Spawn_Point" type="Marker2D" parent="."]
+position = Vector2(64, 448)
+
+[node name="Top" type="Node2D" parent="."]
+position = Vector2(240, 64)
+
+[node name="Block" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(-192, 0)
+
+[node name="Block2" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(-128, 0)
+
+[node name="Block3" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(-64, 0)
+
+[node name="Block4" parent="Top" instance=ExtResource("6_1k360")]
+
+[node name="Block5" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(64, 0)
+
+[node name="Block6" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(128, 0)
+
+[node name="Block7" parent="Top" instance=ExtResource("6_1k360")]
+position = Vector2(192, 0)
+
+[node name="Middle" type="Node2D" parent="."]
+position = Vector2(240, 120)
+
+[node name="Block" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(-192, 0)
+
+[node name="Block2" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(-128, 0)
+
+[node name="Block3" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(-64, 0)
+
+[node name="Block4" parent="Middle" instance=ExtResource("6_1k360")]
+
+[node name="Block5" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(64, 0)
+
+[node name="Block6" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(128, 0)
+
+[node name="Block7" parent="Middle" instance=ExtResource("6_1k360")]
+position = Vector2(192, 0)
+
+[node name="Bottom" type="Node2D" parent="."]
+position = Vector2(240, 176)
+
+[node name="Block" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(-192, 0)
+
+[node name="Block2" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(-128, 0)
+
+[node name="Block3" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(-64, 0)
+
+[node name="Block4" parent="Bottom" instance=ExtResource("6_1k360")]
+
+[node name="Block5" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(64, 0)
+
+[node name="Block6" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(128, 0)
+
+[node name="Block7" parent="Bottom" instance=ExtResource("6_1k360")]
+position = Vector2(192, 0)
+
+[connection signal="start" from="UI" to="." method="_on_ui_start"]
+[connection signal="body_entered" from="Bottom_Wall" to="Bottom_Wall" method="_on_body_entered"]
+[connection signal="gameover" from="Bottom_Wall" to="." method="_on_bottom_gameover"]
