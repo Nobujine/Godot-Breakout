@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bb3k2m0tt0y3h"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_ujpv4"]
+[ext_resource type="Script" uid="uid://c0hw8wq2b1hdb" path="res://main.gd" id="1_ujpv4"]
 [ext_resource type="PackedScene" uid="uid://t5wmd7p1gutk" path="res://ui.tscn" id="1_wswyi"]
 [ext_resource type="PackedScene" uid="uid://3bibeqqgh0td" path="res://Player.tscn" id="2_n2vfp"]
-[ext_resource type="Script" path="res://Bottom.gd" id="4_8h7gv"]
+[ext_resource type="Script" uid="uid://o4syf85u33p" path="res://Bottom.gd" id="4_8h7gv"]
 [ext_resource type="PackedScene" uid="uid://bs2oaaom44cyb" path="res://ball.tscn" id="5_bk4t1"]
 [ext_resource type="PackedScene" uid="uid://dp1dwkk4w1mj8" path="res://block.tscn" id="6_1k360"]
 
@@ -29,6 +29,7 @@ ball_scene = ExtResource("5_bk4t1")
 
 [node name="Player" parent="." instance=ExtResource("2_n2vfp")]
 position = Vector2(226, 649)
+move_speed = 5
 
 [node name="Walls" type="StaticBody2D" parent="."]
 

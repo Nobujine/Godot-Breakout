@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs2oaaom44cyb"]
 
-[ext_resource type="Script" path="res://ball.gd" id="1_s2bn4"]
+[ext_resource type="Script" uid="uid://cnft5ropbibti" path="res://ball.gd" id="1_s2bn4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2blik"]
 friction = 0.0

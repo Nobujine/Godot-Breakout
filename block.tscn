@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp1dwkk4w1mj8"]
 
-[ext_resource type="Script" path="res://Block_Sprite.gd" id="1_m01pe"]
+[ext_resource type="Script" uid="uid://jk4xkis6verj" path="res://Block_Sprite.gd" id="1_m01pe"]
 
 [sub_resource type="GDScript" id="GDScript_qqisj"]
 script/source = "extends RigidBody2D
